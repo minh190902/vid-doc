@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "vid-doc"
+version = "0.1.0"
+description = "Turn tutorial videos (picture + voice) into notes an AI agent can read."
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.10"
+dependencies = [
+    "yt-dlp[default]>=2026.8.19",
+    "deno>=2.3",
+    "faster-whisper>=1.2",
+    # faster-whisper 1.2.1 calls av.open(metadata_errors=...), which PyAV 19 removed.
+    "av>=11,<19",
+    "opencv-python-headless>=4.9",
+    "numpy>=1.26",
+]
+
+[project.scripts]
+vid-doc = "viddoc.cli:main"
+
+[tool.setuptools]
+packages = ["viddoc"]

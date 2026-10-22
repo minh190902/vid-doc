@@ -1,0 +1,9 @@
+__pycache__/
+*.egg-info/
+build/
+dist/
+.venv/
+venv/
+# A library must never be committed: it holds frames and transcripts of other people's videos.
+vid-doc-library/
+library/
